@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <header class="py-8 px-4 mx-auto max-w-xl lg:py-16 lg:px-6">
+    <header class="py-7 px-4 mx-auto max-w-xl lg:pt-16 lg:px-6">
         <div class='mx-auto text-center mb-8 lg:mb-12'>
             <h2 class='mb-4 text-5xl tracking-tight font-extrabold text-white'>
                 Fake Store API
@@ -20,17 +20,29 @@
                 All products from Fake Store API
             </p>
         </div>
+    </header>
 
-
+    <div class="px-2 pb-8 mx-auto max-w-xl lg:px-4">
         <nav class='flex flex-col items-center justify-around w-full text-center md:flex-row'>
-            <button
-                class='flex-row justify-center text-white cursor-pointer hover:dark:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-[#1da1f2]/50 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2 hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-110 scale-90 gap-x-2 opacity-90 hover:opacity-100'>
-                Sort by Category
-            </button>
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+                <label for="table-search" class="sr-only">Search</label>
+                <form class="relative" asp-controller="Home" asp-action="Index" method="get">
+                    <button type="submit"
+                        class="absolute inset-y-0 rtl:inset-r-0 start-0 flex items-center ps-5 cursor-pointer">
+                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                    </button>
+                    <input type="text" id="table-search" name="SearchString"
+                        class="flex p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg w-80 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Search for category" />
+                </form>
+            </div>
         </nav>
 
-
-    </header>
+    </div>
 
     <div class="container mx-auto mb-6">
         <main role="main" class="flex justify-center">

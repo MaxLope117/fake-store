@@ -61,19 +61,4 @@ public class APIService : IAPIService
       return obj;
     }
   }
-
-  public Task<bool> SaveProduct(Product obj)
-  {
-    throw new NotImplementedException();
-  }
-
-  public Task<bool> EditProduct(Product obj)
-  {
-    throw new NotImplementedException();
-  }
-
-  public Task<bool> DeleteProduct(long idProduct)
-  {
-    throw new NotImplementedException();
-  }
 }

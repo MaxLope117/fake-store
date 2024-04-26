@@ -15,29 +15,20 @@ public class HomeController : Controller
         _APIService = apiService;
     }
 
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Index(string searchString)
     {
-        List<Product> list = await _APIService.GetProducts();
-        return View(list);
-    }
-
-    public async Task<IActionResult> Product(long idProduct)
-    {
-        Product product_model = new Product();
-
-        ViewBag.Accion = "New product";
-        if (idProduct != 0)
+        var products = from product in await _APIService.GetProducts() select product;
+        if (!String.IsNullOrEmpty(searchString))
         {
-            product_model = await _APIService.GetProduct(idProduct);
-            ViewBag.Accion = "Edit Product";
+            products = products.Where(search => search.category!.Contains(searchString));
         }
-
-        return View(product_model);
+        return View(products.ToList());
     }
 
-    public IActionResult Privacy()
+    [HttpPost]
+    public string Index(string searchString, bool notUsed)
     {
-        return View();
+        return "From [HttpPost]Index: filter on " + searchString;
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

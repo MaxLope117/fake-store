@@ -8,7 +8,7 @@
 
 2. La aplicación debe:
 
-   [ ] Mostrar la lista de productos.
+   [ X ] Mostrar la lista de productos.
 
    [ ] Ordenar los productos por categoría.
 

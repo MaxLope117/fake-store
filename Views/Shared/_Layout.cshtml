@@ -12,24 +12,33 @@
 
 <body>
     <header class="py-8 px-4 mx-auto max-w-xl lg:py-16 lg:px-6">
-        <div class='mx-auto text-center mb-8 lg:mb-16'>
+        <div class='mx-auto text-center mb-8 lg:mb-12'>
             <h2 class='mb-4 text-5xl tracking-tight font-extrabold text-white'>
                 Fake Store API
             </h2>
             <p class='font-light text-gray-500 sm:text-xl dark:text-gray-400'>
                 All products from Fake Store API
             </p>
-
-            <div class="container">
-                <main role="main" class="pb-3">
-                    @RenderBody()
-                </main>
-            </div>
         </div>
+
+
+        <nav class='flex flex-col items-center justify-around w-full text-center md:flex-row'>
+            <button
+                class='flex-row justify-center text-white cursor-pointer hover:dark:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-[#1da1f2]/50 font-medium rounded-lg px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-[#1da1f2]/55 mr-2 mb-2 hover:shadow-lg transition-all duration-200 ease-in-out hover:scale-110 scale-90 gap-x-2 opacity-90 hover:opacity-100'>
+                Sort by Category
+            </button>
+        </nav>
+
 
     </header>
 
-    <footer class="footer text-center">
+    <div class="container mx-auto mb-6">
+        <main role="main" class="flex justify-center">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer text-center mb-8">
         <div class="mx-auto text-center">
             <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400 p-4">
                 Learn about

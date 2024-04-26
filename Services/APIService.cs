@@ -1,7 +1,5 @@
-using Newtonsoft.Json;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Collections.Generic;
+// using Newtonsoft.Json;
+using System.Text.Json;
 
 using FakeStore.Interfaces;
 using FakeStore.Models;
@@ -12,7 +10,7 @@ public class APIService : IAPIService
 {
   private static string _baseUrl = "https://fakestoreapi.com/";
 
-  public async Task<List<Product>> ProductsList()
+  public async Task<List<Product>> GetProducts()
   {
     List<Product> list = new List<Product>();
     var client = new HttpClient();
@@ -24,9 +22,9 @@ public class APIService : IAPIService
 
       if (response.IsSuccessStatusCode)
       {
-        var json_response = await response.Content.ReadAsStringAsync();
-        var result = JsonConvert.DeserializeObject(json_response);
-        Console.WriteLine(result.GetType());
+        var json_response = response.Content.ReadAsStringAsync().Result;
+        var result = JsonSerializer.Deserialize<List<Product>>(json_response);
+        list = result;
       }
 
       return list;
@@ -46,13 +44,13 @@ public class APIService : IAPIService
 
     try
     {
-      var response = await client.GetAsync($"product/{idProduct}");
+      var response = await client.GetAsync($"products/{idProduct}");
 
       if (response.IsSuccessStatusCode)
       {
-        var json_response = await response.Content.ReadAsStringAsync();
-        var result = JsonConvert.DeserializeObject<APIResult>(json_response);
-        obj = result.obj;
+        var json_response = response.Content.ReadAsStringAsync().Result;
+        Product result = JsonSerializer.Deserialize<Product>(json_response);
+        obj = result;
       }
 
       return obj;
@@ -78,5 +76,4 @@ public class APIService : IAPIService
   {
     throw new NotImplementedException();
   }
-
 }

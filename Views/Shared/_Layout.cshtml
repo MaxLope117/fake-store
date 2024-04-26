@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FakeStore</title>
+    <link rel="stylesheet" href="~/css/output.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FakeStore.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header class="py-8 px-4 mx-auto max-w-xl lg:py-16 lg:px-6">
+        <div class='mx-auto text-center mb-8 lg:mb-16'>
+            <h2 class='mb-4 text-5xl tracking-tight font-extrabold text-white'>
+                Fake Store API
+            </h2>
+            <p class='font-light text-gray-500 sm:text-xl dark:text-gray-400'>
+                All products from Fake Store API
+            </p>
+
+            <div class="container">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+
+    </header>
+
+    <footer class="footer text-center">
+        <div class="mx-auto text-center">
+            <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400 p-4">
+                Learn about
+                <a href="https://fakestoreapi.com">Fake Store API</a>.
+            </p>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

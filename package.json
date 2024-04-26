@@ -1,0 +1,21 @@
+{
+  "name": "fakestore",
+  "version": "1.0.0",
+  "description": "Fake Store Table",
+  "main": "index.js",
+  "scripts": {
+    "css:build": "npx tailwind build ./wwwroot/css/site.css -o ./wwwroot/css/output.css"
+  },
+  "keywords": [
+    "Tailwind",
+    "NPM",
+    "CSharp"
+  ],
+  "author": "Maximiliano Lope",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
+}

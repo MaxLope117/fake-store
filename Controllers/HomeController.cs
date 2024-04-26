@@ -1,21 +1,38 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using FakeStore.Models;
+using FakeStore.Interfaces;
+using FakeStore.Services;
 
 namespace FakeStore.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private readonly IAPIService _APIService;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(IAPIService apiService)
     {
-        _logger = logger;
+        _APIService = apiService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        List<Product> list = await _APIService.ProductsList();
+        return View(list);
+    }
+
+    public async Task<IActionResult> Product(long idProduct)
+    {
+        Product product_model = new Product();
+
+        ViewBag.Accion = "New product";
+        if (idProduct != 0)
+        {
+            product_model = await _APIService.GetProduct(idProduct);
+            ViewBag.Accion = "Edit Product";
+        }
+
+        return View(product_model);
     }
 
     public IActionResult Privacy()

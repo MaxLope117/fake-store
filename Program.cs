@@ -1,3 +1,5 @@
+using FakeStore.Interfaces;
+using FakeStore.Services;
 namespace FakeStore;
 
 public class Program
@@ -8,6 +10,7 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddControllersWithViews();
+        builder.Services.AddScoped<IAPIService, APIService>();
 
         var app = builder.Build();
 

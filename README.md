@@ -10,7 +10,7 @@
 
    [ X ] Mostrar la lista de productos.
 
-   [ ] Ordenar los productos por categoría.
+   [ X ] Buscar los productos por categoría.
 
    El endpoint a consultar es:
 
@@ -18,7 +18,7 @@
 
 3. Enviar la prueba al email: axel.gomez@gdar.com.mx. El formato deberá ser un repositorio de Git o bien un Zip mediante wetransfer
 
-## Instrucciones
+## Instalación
 
 1. Instalar los modulos de Node
 
